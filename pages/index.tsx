@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Banner from "../components/banner/Banner";
 import Header from "../components/header/Header";
 
 const Home: NextPage = () => {
@@ -12,6 +13,9 @@ const Home: NextPage = () => {
       <div>
         <Header />
       </div>
+      <section className="max-w-screen-2xl mx-auto">
+        <Banner />
+      </section>
     </main>
   );
 };
