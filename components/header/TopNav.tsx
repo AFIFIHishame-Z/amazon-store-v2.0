@@ -6,7 +6,13 @@ import {
   MenuIcon,
 } from "@heroicons/react/outline";
 
+import { useSelector } from "react-redux";
+import { selectItems } from "../../slices/bascketSlice";
+import { useRouter } from "next/router";
+
 export default function TopNav() {
+  const items = useSelector(selectItems);
+  const router = useRouter();
   return (
     <div className="bg-amazon_blue p-1 flex-grow py-2 px-3 md:px-0">
       <div className="flex items-center  ">
@@ -18,6 +24,9 @@ export default function TopNav() {
             height={40}
             objectFit={"contain"}
             alt={"Amazon logo"}
+            onClick={() => {
+              router.push("/");
+            }}
           />
         </div>
         <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500">
@@ -36,9 +45,14 @@ export default function TopNav() {
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
-          <div className="flex items-center link relative">
+          <div
+            onClick={() => {
+              router.push("/checkout");
+            }}
+            className="flex items-center link relative"
+          >
             <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center font-bold text-black rounded-full">
-              0
+              {items.length}
             </span>
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline font-extrabold md:text-sm mt-2">

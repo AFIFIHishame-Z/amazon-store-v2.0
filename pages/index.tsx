@@ -11,7 +11,7 @@ const Home: NextPage<any> = ({ products }: { products: any }) => {
         <title>Amazon store v2.0</title>
         <meta name="description" content="Rebuild Amazon store using NextJs" />
       </Head>
-      <div>
+      <div className="sticky top-0 z-50">
         <Header />
       </div>
       <section className="max-w-screen-2xl mx-auto">
